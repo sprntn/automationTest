@@ -9,27 +9,20 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">crudTest.ProductTest</th></tr>
-<tr><td><a href="#t0">Command line test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">54,496</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Command line test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">96,602</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">crudTest.ProductTest</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Command line test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">crudTest.ProductTest</td><td><a href="#m0">testDeleteProduct</a></td><td rowspan="1">1655897605779</td><td rowspan="1">1706</td></tr><tr class="failedeven"><td><a href="#m1">testUpdateProduct</a></td><td rowspan="1">1655897628666</td><td rowspan="1">2776</td></tr><tr><th colspan="4">Command line test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">crudTest.ProductTest</td><td><a href="#m2">testAddProduct</a></td><td rowspan="1">1655897603019</td><td rowspan="1">2757</td></tr><tr class="passedeven"><td><a href="#m3">testGetProduct</a></td><td rowspan="1">1655897607488</td><td rowspan="1">21177</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">crudTest.ProductTest</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Command line test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">crudTest.ProductTest</td><td><a href="#m0">testDeleteProduct</a></td><td rowspan="1">1655907227757</td><td rowspan="1">2237</td></tr><tr><th colspan="4">Command line test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">crudTest.ProductTest</td><td><a href="#m1">testAddProduct</a></td><td rowspan="1">1655907224085</td><td rowspan="1">3670</td></tr><tr class="passedeven"><td><a href="#m2">testGetProduct</a></td><td rowspan="1">1655907230004</td><td rowspan="1">22033</td></tr><tr class="passedeven"><td><a href="#m3">testUpdateProduct</a></td><td rowspan="1">1655907252038</td><td rowspan="1">43245</td></tr></tbody>
 </table>
-<h2>Command line test</h2><h3 id="m0">crudTest.ProductTest#testDeleteProduct</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NumberFormatException: For input string: &quot;item3&quot;
-	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
-	at java.base/java.lang.Integer.parseInt(Integer.java:668)
-	at java.base/java.lang.Integer.parseInt(Integer.java:784)
-	at crud.ProductsPage.getLastId(ProductsPage.java:97)
-	at crudTest.ProductTest.testDeleteProduct(ProductTest.java:71)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">crudTest.ProductTest#testUpdateProduct</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button type=&quot;button&quot; name=&quot;ctl00$ContentPlaceholder1$RadGrid1$ctl00$ctl13$UpdateButton&quot; value=&quot;Update&quot; onclick=&quot;javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&amp;quot;ctl00$ContentPlaceholder1$RadGrid1$ctl00$ctl13$UpdateButton&amp;quot;, &amp;quot;&amp;quot;, true, &amp;quot;&amp;quot;, &amp;quot;&amp;quot;, false, true))&quot; id=&quot;ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl13_UpdateButton&quot; title=&quot;Update&quot; class=&quot;t-button rgActionButton rgUpdate&quot;&gt;...&lt;/button&gt; is not clickable at point (337, 629). Other element would receive the click: &lt;div id=&quot;onetrust-banner-sdk&quot; class=&quot;otFlat bottom vertical-align-content&quot; role=&quot;dialog&quot; aria-labelledby=&quot;onetrust-policy-title&quot; aria-describedby=&quot;onetrust-policy-text&quot; tabindex=&quot;0&quot; style=&quot;bottom: 0px&quot;&gt;...&lt;/div&gt;
+<h2>Command line test</h2><h3 id="m0">crudTest.ProductTest#testDeleteProduct</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=102.0.5005.63)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
 Build info: version: &apos;4.2.1&apos;, revision: &apos;ac4d0fdd4a&apos;
-System info: host: &apos;DESKTOP-KSI83VH&apos;, ip: &apos;10.0.0.145&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.1.1&apos;
+System info: host: &apos;DESKTOP-KSI83VH&apos;, ip: &apos;192.168.175.137&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.1.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [44fb2101e6d6e1d86cb08ab6b2c6a03a, clickElement {id=9b6cea42-3e38-41dd-b6b1-4c25ba3622c9}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.63, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\shapira\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:51919}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:51919/devtoo..., se:cdpVersion: 102.0.5005.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (44fb2101e6d6e1d86cb08ab6b2c6a03a)] -&gt; xpath: //div[@class=&apos;rgEditForm&apos;]/button]
-Session ID: 44fb2101e6d6e1d86cb08ab6b2c6a03a
+Command: [d6178967556aaf6aab895b8e9ca38dea, clickElement {id=4c956dc8-c370-4552-bd8b-8765f9c3d152}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.63, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\shapira\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:59582}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:59582/devtoo..., se:cdpVersion: 102.0.5005.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (d6178967556aaf6aab895b8e9ca38dea)] -&gt; xpath: //td[text()=&apos;83&apos;]/../td[6]/button]
+Session ID: d6178967556aaf6aab895b8e9ca38dea
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
@@ -39,12 +32,12 @@ Session ID: 44fb2101e6d6e1d86cb08ab6b2c6a03a
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:551)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:78)
-	at crud.ProductsPage.fillEditProdute(ProductsPage.java:66)
-	at crud.ProductsPage.updateProduct(ProductsPage.java:254)
-	at crudTest.ProductTest.testUpdateProduct(ProductTest.java:50)
+	at crud.ProductsPage.deleteProduct(ProductsPage.java:309)
+	at crudTest.ProductTest.testDeleteProduct(ProductTest.java:89)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">crudTest.ProductTest#testAddProduct</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">crudTest.ProductTest#testGetProduct</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">crudTest.ProductTest#testAddProduct</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">crudTest.ProductTest#testGetProduct</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">crudTest.ProductTest#testUpdateProduct</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

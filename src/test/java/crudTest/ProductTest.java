@@ -23,7 +23,7 @@ public class ProductTest {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		
-// console.log
+
 
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
@@ -38,6 +38,8 @@ public class ProductTest {
 	
 	@Test
 	public void testAddProduct() {
+		System.out.println("*add product test*");
+		
 		Product expectedProduct = new Product("item3", 2, 5.5, 0);
 		
 		productsPage.addProduct(expectedProduct);
@@ -48,31 +50,43 @@ public class ProductTest {
 	
 	@Test
 	public void testUpdateProduct() throws InterruptedException {
-		Product expectedProduct = new Product("item updated", 4, 7.9, 17);
-		productsPage.updateProduct(expectedProduct);
+		System.out.println("*update product test*");
 		
+		Product expectedProduct = new Product("item updated", 4, 7.9, 27);
+		productsPage.updateProduct(expectedProduct);
 		Product resultProduct = productsPage.findAndGetProduct(expectedProduct.getProductId());
+		
+		asserNullProduct(resultProduct);
 		assertProductsChange(expectedProduct, resultProduct);
 	}
 	
 	@Test
 	public void testGetProduct() {
+		System.out.println("*get product test*");
+		
 		Product product = productsPage.findAndGetProduct(16);
-		System.out.println("product name: " + product.getProductName()
-		 + "\nproduct units: " + product.getProductUnits()
-		 + "\nproduct price: " + product.getProductPrice()
-		 + "\nproduct id: " + product.getProductId());
+		if(product != null) {
+			System.out.println("product name: " + product.getProductName()
+			 + "\nproduct units: " + product.getProductUnits()
+			 + "\nproduct price: " + product.getProductPrice()
+			 + "\nproduct id: " + product.getProductId());
+		}else {
+			System.out.println("product not found");
+		}
+		
 	}
 	
 	@Test
 	public void testDeleteProduct() {
+		System.out.println("*delete product test*");
+		
 		Product addedProduct = new Product("item3", 2, 5.5, 0);
 		
 		productsPage.addProduct(addedProduct);
 		
 		int lastIdBefore = productsPage.getLastId();
 		
-		productsPage.deleteProduct(addedProduct.getProductId());
+		productsPage.deleteProduct(lastIdBefore);
 		
 		int lastIdAfter = productsPage.getLastId();
 		
@@ -88,6 +102,10 @@ public class ProductTest {
 	//private void assertProductDeleted(int id) {
 	//	Assert.assertEquals(null, productsPage.findAndGetProduct(id));
 	//}
+	
+	private void asserNullProduct(Product resultProduct) {
+		Assert.assertNotEquals(null, resultProduct, "product not found");
+	}
 	
 	private void assertProductsMatch(Product expProduct, Product resultProduct) {
 		Assert.assertEquals(expProduct.getProductName(), resultProduct.getProductName());

@@ -17,10 +17,12 @@ public class ProductsPage {
 
 	private WebDriver driver;
 	private WebDriverWait waiter;
+	JavascriptExecutor js;
 	
 	public ProductsPage(WebDriver driver) {
 		this.driver = driver;
 		waiter = new WebDriverWait(driver, Duration.ofSeconds(20));
+		js = (JavascriptExecutor)driver;
 	}
 	
 	private void clickAddProduct() {
@@ -63,7 +65,9 @@ public class ProductsPage {
 		}
 		
 		WebElement submitBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(submitBtnLocator));
-		submitBtn.click();
+		
+		js.executeScript("arguments[0].click()", submitBtn);
+		//submitBtn.click();
 	}
 	
 	private void fillNewProdute(Product product){
@@ -90,7 +94,7 @@ public class ProductsPage {
 	public int getLastId() {
 		goToLastPage();
 		
-		By lastRowIdLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[last()]/td[3]");
+		By lastRowIdLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[last()]/td[2]");
 		WebElement lastRowId = waiter.until(ExpectedConditions.visibilityOfElementLocated(lastRowIdLocator));
 		
 		String strId = lastRowId.getText();
@@ -156,23 +160,6 @@ public class ProductsPage {
 		*/
 	}
 	
-	public void goToFirstPage() {
-		/*
-		//WebElement lastPageElemaent = driver.findElement(By.cssSelector('button .rgPageLast'));
-		WebElement lastPageElemaent = driver.findElement(By.className("rgPageLast"));
-		*/
-		//wait to be clickable
-		
-		By firstPageBtnLocator = By.className("rgPageFirst");
-		waiter.until(ExpectedConditions.elementToBeClickable(firstPageBtnLocator));
-		WebElement firstPageBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(firstPageBtnLocator));
-		//wait.until(ExpectedConditions.elementToBeClickable(lastPageBtn));
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click()", firstPageBtn);
-		
-		//lastPageBtn.click();
-	}
-	
 	public boolean findPage(String id) {		
 		int productsNum = getProductsNum();
 
@@ -194,8 +181,8 @@ public class ProductsPage {
 		WebElement product;
 		By productLocator = By.xpath("//td[text()='" + id + "']");
 		
-		//goToFirstPage
 		goToFirstPage();
+		
 		int i = 0;
 		while(i < nextPageNum) {
 			try {
@@ -205,7 +192,7 @@ public class ProductsPage {
 			}catch (Exception e) {
 				
 				//test
-				System.out.println("page: " + i);
+				System.out.println("page: " + (i + 1));
 				
 				if(i < nextPageNum) {
 					i++;
@@ -233,7 +220,7 @@ public class ProductsPage {
 		By nextPageBtnLocator = By.className("rgPageNext");
 		WebElement nextPageBtn = waiter.until(ExpectedConditions.elementToBeClickable(nextPageBtnLocator));
 		//nextPageBtn.click();
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
 		js.executeScript("arguments[0].click()", nextPageBtn);
 	}
 	
@@ -248,13 +235,13 @@ public class ProductsPage {
 			//editBtn.click();
 			
 			WebElement editBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(editBtnocator));
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			//JavascriptExecutor js = (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].click()", editBtn);
 			
 			fillEditProdute(product);
 			
 			//wait
-			waiter.wait(5000);
+			//waiter.wait(5000);
 		}
 		
 		
@@ -376,8 +363,25 @@ public class ProductsPage {
 		waiter.until(ExpectedConditions.elementToBeClickable(lastPageBtnLocator));
 		WebElement lastPageBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(lastPageBtnLocator));
 		//wait.until(ExpectedConditions.elementToBeClickable(lastPageBtn));
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
 		js.executeScript("arguments[0].click()", lastPageBtn);
+		
+		//lastPageBtn.click();
+	}
+	
+	public void goToFirstPage() {
+		/*
+		//WebElement lastPageElemaent = driver.findElement(By.cssSelector('button .rgPageLast'));
+		WebElement lastPageElemaent = driver.findElement(By.className("rgPageLast"));
+		*/
+		//wait to be clickable
+		
+		By firstPageBtnLocator = By.className("rgPageFirst");
+		waiter.until(ExpectedConditions.elementToBeClickable(firstPageBtnLocator));
+		WebElement firstPageBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(firstPageBtnLocator));
+		//wait.until(ExpectedConditions.elementToBeClickable(lastPageBtn));
+		
+		js.executeScript("arguments[0].click()", firstPageBtn);
 		
 		//lastPageBtn.click();
 	}
