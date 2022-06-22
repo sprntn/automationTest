@@ -102,13 +102,15 @@ public class ProductsPage {
 	}
 	
 	public Product getLastProduct() {
+		//test
+		System.out.println("get last product");
 		
 		goToLastPage();
 		
 		//wait until page updated    
 		
-		By lastPageNumLocator = By.xpath("//div[@class='rgWrap rgNumPart']/a[last()]");
-		waiter.until(ExpectedConditions.attributeContains(lastPageNumLocator, "class", "rgCurrentPage"));
+		//By lastPageNumLocator = By.xpath("//div[@class='rgWrap rgNumPart']/a[last()]");
+		//waiter.until(ExpectedConditions.attributeContains(lastPageNumLocator, "class", "rgCurrentPage"));
 		
 		By lastRowNameLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[last()]/td[3]");
 		By lastRowUnitsLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[last()]/td[4]");
@@ -134,7 +136,7 @@ public class ProductsPage {
 		return product;
 	}
 	
-	public void addProduct(Product product) {
+	public int addProduct(Product product) {
 		
 		//find the list size
 		int numBefore = getProductsNum();
@@ -153,6 +155,7 @@ public class ProductsPage {
 		String expectedNum = String.valueOf(numBefore + 1);
 		waiter.until(ExpectedConditions.textToBe(itemsNumLocator, expectedNum));
 		
+		return getLastId();
 		/*
 		Product testProduct = getLastProduct();
 		
@@ -160,7 +163,10 @@ public class ProductsPage {
 		*/
 	}
 	
-	public boolean findPage(String id) {		
+	public boolean findPage(String id) {
+		//test
+		System.out.println("find page, seeking for product: " + id);
+		
 		int productsNum = getProductsNum();
 
 		By pageSizeLocator = By.xpath("//div[@class='rgWrap rgAdvPart']/div/span/input");
@@ -183,11 +189,28 @@ public class ProductsPage {
 		
 		goToFirstPage();
 		
+		for(int i = 0; i <= nextPageNum; i++ ) {
+			System.out.println("page: " + (i + 1));
+			try {
+				product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
+				System.out.println("product id: " + id + " found in page: " + (i + 1));
+				return true;
+			}catch (Exception e) {
+				if(i < nextPageNum) {
+					goToNextPage();
+				}else {
+					System.out.println("inside loop");
+					return false;
+				}
+			}
+		}
+		/*
 		int i = 0;
 		while(i < nextPageNum) {
 			try {
 				//productsList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productLocator));
 				product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
+				System.out.println("product id: " + id + " found in page: " + (i + 1));
 				return true;
 			}catch (Exception e) {
 				
@@ -204,6 +227,8 @@ public class ProductsPage {
 				}
 			}
 		}
+		*/
+		System.out.println("out of loop");
 		return false;
 	}
 	
@@ -298,15 +323,20 @@ public class ProductsPage {
 	}
 	
 	public void deleteProduct(int id) {
+		//test
+		System.out.println("deleting item: " + id);
 		
 		int numBefore = getProductsNum();
 		
 		String strId = String.valueOf(id);
 		if(findPage(strId)) {
+			System.out.println("deleting product now");
 			By deleteBtnLocator = By.xpath("//td[text()='" + strId + "']/../td[6]/button");
-			//WebElement deleteButton = wait.until(ExpectedConditions.visibilityOfElementLocated(deleteBtnLocator));
-			WebElement deleteButton =  waiter.until(ExpectedConditions.elementToBeClickable(deleteBtnLocator));
-			deleteButton.click();
+			WebElement deleteButton = waiter.until(ExpectedConditions.visibilityOfElementLocated(deleteBtnLocator));
+			//WebElement deleteButton =  waiter.until(ExpectedConditions.elementToBeClickable(deleteBtnLocator));
+			js.executeScript("arguments[0].click()", deleteButton);
+			
+			//deleteButton.click();
 			
 			By okBtnLocator = By.className("rwOkBtn");
 			WebElement okBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(okBtnLocator));
@@ -315,17 +345,17 @@ public class ProductsPage {
 			Assert.fail("id not found");
 		}
 		
-		/*
+		
 		//validation 1
 		try {
 			By itemsNumLocator = By.xpath("//*[@id=\'ctl00_ContentPlaceholder1_RadGrid1_ctl00\']/tfoot/tr/td/div/div[5]/strong[1]");
 			String expectedNum = String.valueOf(numBefore - 1);
-			wait.until(ExpectedConditions.textToBe(itemsNumLocator, expectedNum));
+			waiter.until(ExpectedConditions.textToBe(itemsNumLocator, expectedNum));
 		}catch(Exception e){
-			//assert... changes not saved
 			Assert.fail("changes not saved");
 		}
 		
+		/*
 		//validation 2
 		By itemsNumLocator = By.xpath("//*[@id=\'ctl00_ContentPlaceholder1_RadGrid1_ctl00\']/tfoot/tr/td/div/div[5]/strong[1]");
 		WebElement itemsNum = wait.until(ExpectedConditions.visibilityOfElementLocated(itemsNumLocator));
@@ -367,6 +397,9 @@ public class ProductsPage {
 		js.executeScript("arguments[0].click()", lastPageBtn);
 		
 		//lastPageBtn.click();
+		
+		By lastPageNumLocator = By.xpath("//div[@class='rgWrap rgNumPart']/a[last()]");
+		waiter.until(ExpectedConditions.attributeContains(lastPageNumLocator, "class", "rgCurrentPage"));
 	}
 	
 	public void goToFirstPage() {
@@ -384,6 +417,9 @@ public class ProductsPage {
 		js.executeScript("arguments[0].click()", firstPageBtn);
 		
 		//lastPageBtn.click();
+		
+		By firstPageNumLocator = By.xpath("//div[@class='rgWrap rgNumPart']/a[1]");
+		waiter.until(ExpectedConditions.attributeContains(firstPageNumLocator, "class", "rgCurrentPage"));
 	}
 	
 	public void acceptCookies() {

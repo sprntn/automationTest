@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-crudTest_ProductTest" class="navigator-link">
-              <span class="suite-name border-passed">crudTest.ProductTest</span>
+              <span class="suite-name border-failed">crudTest.ProductTest</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,36 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-crudTest_ProductTest" class="hide-methods passed suite-crudTest_ProductTest"> (hide)</a> <!-- hide-methods passed suite-crudTest_ProductTest -->
-                      <a href="#" panel-name="suite-crudTest_ProductTest" class="show-methods passed suite-crudTest_ProductTest"> (show)</a> <!-- show-methods passed suite-crudTest_ProductTest -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-crudTest_ProductTest" class="hide-methods failed suite-crudTest_ProductTest"> (hide)</a> <!-- hide-methods failed suite-crudTest_ProductTest -->
+                      <a href="#" panel-name="suite-crudTest_ProductTest" class="show-methods failed suite-crudTest_ProductTest"> (show)</a> <!-- show-methods failed suite-crudTest_ProductTest -->
                     </span>
-                    <div class="method-list-content passed suite-crudTest_ProductTest">
+                    <div class="method-list-content failed suite-crudTest_ProductTest">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testAddProduct">testAddProduct</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testDeleteProduct">testDeleteProduct</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testGetProduct">testGetProduct</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testUpdateProduct">testUpdateProduct</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-crudTest_ProductTest -->
+                    </div> <!-- method-list-content failed suite-crudTest_ProductTest -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -133,42 +118,26 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-crudTest_ProductTest" class="panel crudTest_ProductTest">
-          <div class="suite-crudTest_ProductTest-class-passed">
+          <div class="suite-crudTest_ProductTest-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">crudTest.ProductTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testAddProduct">
-                  </a> <!-- testAddProduct -->
-                  <span class="method-name">testAddProduct</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="testDeleteProduct">
                   </a> <!-- testDeleteProduct -->
                   <span class="method-name">testDeleteProduct</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testGetProduct">
-                  </a> <!-- testGetProduct -->
-                  <span class="method-name">testGetProduct</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testUpdateProduct">
-                  </a> <!-- testUpdateProduct -->
-                  <span class="method-name">testUpdateProduct</span>
+                  <div class="stack-trace">java.lang.AssertionError: did not expect [80] but found [80]
+	at crudTest.ProductTest.testDeleteProduct(ProductTest.java:113)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 37 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-crudTest_ProductTest-class-passed -->
+          </div> <!-- suite-crudTest_ProductTest-class-failed -->
         </div> <!-- panel crudTest_ProductTest -->
         <div panel-name="test-xml-crudTest_ProductTest" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -220,23 +189,11 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testUpdateProduct')
+data.setCell(0, 1, 'testDeleteProduct')
 data.setCell(0, 2, 'crudTest.ProductTest')
-data.setCell(0, 3, 103945);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testDeleteProduct')
-data.setCell(1, 2, 'crudTest.ProductTest')
-data.setCell(1, 3, 43471);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testGetProduct')
-data.setCell(2, 2, 'crudTest.ProductTest')
-data.setCell(2, 3, 21240);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testAddProduct')
-data.setCell(3, 2, 'crudTest.ProductTest')
-data.setCell(3, 3, 3309);
+data.setCell(0, 3, 147792);
 window.suiteTableData['crudTest_ProductTest']= { tableData: data, tableDiv: 'times-div-crudTest_ProductTest'}
 return data;
 }
@@ -273,24 +230,14 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">testAddProduct</span>
-                <span class="method-start">5585 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">testDeleteProduct</span>
-                <span class="method-start">8899 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testGetProduct</span>
-                <span class="method-start">52371 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testUpdateProduct</span>
-                <span class="method-start">73612 ms</span>
+                <span class="method-start">5154 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">finish</span>
-                <span class="method-start">177559 ms</span>
+                <span class="method-start">152951 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
