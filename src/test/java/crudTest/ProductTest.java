@@ -23,6 +23,8 @@ public class ProductTest {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		
+// console.log
+
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		String url = "https://demos.telerik.com/aspnet-ajax/grid/examples/data-editing/manual-crud-operations/defaultcs.aspx";
