@@ -36,7 +36,7 @@ public class ProductTest {
 		//productsPage.acceptCookies();
 	}
 	
-	//@Test
+	@Test
 	public void testAddProduct() {
 		System.out.println("*add product test*");
 		
@@ -65,7 +65,7 @@ public class ProductTest {
 		assertProductsChange(expectedProduct, resultProduct);//check!!!
 	}
 	
-	//@Test
+	@Test
 	public void testGetProduct() {
 		System.out.println("*get product test*");
 		
@@ -81,7 +81,7 @@ public class ProductTest {
 		
 	}
 	
-	//@Test
+	@Test
 	public void testDeleteProduct() {
 		System.out.println("*delete product test*");
 		
@@ -104,10 +104,6 @@ public class ProductTest {
 		Thread.sleep(20000);
 		driver.quit();
 	}
-	
-	//private void assertProductDeleted(int id) {
-	//	Assert.assertEquals(null, productsPage.findAndGetProduct(id));
-	//}
 	
 	private void asserNullProduct(Product resultProduct) {
 		Assert.assertNotEquals(null, resultProduct, "product not found");
