@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-23T00:02:28 IDT" name="crudTest.ProductTest" finished-at="2022-06-23T00:07:46 IDT" duration-ms="318472">
+  <suite started-at="2022-06-23T11:26:27 IDT" name="crudTest.ProductTest" finished-at="2022-06-23T11:27:40 IDT" duration-ms="72687">
     <groups>
     </groups>
-    <test started-at="2022-06-23T00:02:28 IDT" name="Command line test" finished-at="2022-06-23T00:07:46 IDT" duration-ms="318472">
+    <test started-at="2022-06-23T11:26:27 IDT" name="Command line test" finished-at="2022-06-23T11:27:40 IDT" duration-ms="72687">
       <class name="crudTest.ProductTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:crudTest.ProductTest@75c072cb]" started-at="2022-06-23T00:02:28 IDT" name="setup" finished-at="2022-06-23T00:02:34 IDT" duration-ms="6001" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-23T11:26:27 IDT" name="setup" finished-at="2022-06-23T11:26:32 IDT" duration-ms="4888" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testUpdateProduct()[pri:0, instance:crudTest.ProductTest@75c072cb]" started-at="2022-06-23T00:02:34 IDT" name="testUpdateProduct" finished-at="2022-06-23T00:07:26 IDT" duration-ms="292153" status="PASS">
+        <test-method signature="testUpdateById()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-23T11:26:32 IDT" name="testUpdateById" finished-at="2022-06-23T11:27:19 IDT" duration-ms="47451" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testUpdateProduct -->
-        <test-method is-config="true" signature="finish()[pri:0, instance:crudTest.ProductTest@75c072cb]" started-at="2022-06-23T00:07:26 IDT" name="finish" finished-at="2022-06-23T00:07:46 IDT" duration-ms="20281" status="PASS">
+        </test-method> <!-- testUpdateById -->
+        <test-method is-config="true" signature="finish()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-23T11:27:19 IDT" name="finish" finished-at="2022-06-23T11:27:40 IDT" duration-ms="20299" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finish -->

@@ -147,7 +147,8 @@ public class ProductsPage {
 		
 		By submitBtn = By.cssSelector("button[id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl02_ctl03_PerformInsertButton']");
 		WebElement submit = driver.findElement(submitBtn);
-		submit.click();
+		js.executeScript("arguments[0].click()", submit);
+		//submit.click();
 		
 		
 		//wait the item to be added
@@ -181,11 +182,12 @@ public class ProductsPage {
 		}
 		
 		//test
-		System.out.println("all items: " + productsNum + "\nitems per page: " + pageProductsNum + "\npages number: " + (nextPageNum + 1) + "\nleft: " + productsNum % pageProductsNum);
+		System.out.println("all items: " + productsNum + "\nitems per page: " + pageProductsNum + "\npages number: " + (nextPageNum + 1) + "\nrest: " + productsNum % pageProductsNum);
 				
 		//List<WebElement> productsList;
 		WebElement product;
-		By productLocator = By.xpath("//td[text()='" + id + "']");
+		//By productLocator = By.xpath("//td[text()='" + id + "']");//bug
+		By productLocator = By.xpath("//td[2 and text()='" + id + "']");
 		
 		goToFirstPage();
 		
@@ -204,30 +206,8 @@ public class ProductsPage {
 				}
 			}
 		}
-		/*
-		int i = 0;
-		while(i < nextPageNum) {
-			try {
-				//productsList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productLocator));
-				product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
-				System.out.println("product id: " + id + " found in page: " + (i + 1));
-				return true;
-			}catch (Exception e) {
-				
-				//test
-				System.out.println("page: " + (i + 1));
-				
-				if(i < nextPageNum) {
-					i++;
-					goToNextPage();
-				}
-				else {
-					//System.out.println("product not found");
-					return false;
-				}
-			}
-		}
-		*/
+		
+		
 		System.out.println("out of loop");
 		return false;
 	}

@@ -36,7 +36,7 @@ public class ProductTest {
 		//productsPage.acceptCookies();
 	}
 	
-	@Test
+	//@Test
 	public void testAddProduct() {
 		System.out.println("*add product test*");
 		
@@ -49,6 +49,20 @@ public class ProductTest {
 	}
 	
 	@Test
+	public void testUpdateById() throws InterruptedException {
+		System.out.println("*update product  by id test*");
+		
+		int id = 18;//randomaly
+		Product expectedProduct = new Product("item to update", 6, 8.9, id);
+		
+		productsPage.updateProduct(expectedProduct);
+		Product resultProduct = productsPage.findAndGetProduct(id);
+		
+		asserNullProduct(resultProduct);
+		assertProductsChange(expectedProduct, resultProduct);
+	}
+	
+	//@Test
 	public void testUpdateProduct() throws InterruptedException {
 		System.out.println("*update product test*");
 		
@@ -58,14 +72,13 @@ public class ProductTest {
 		
 		Product expectedProduct = new Product("item updated", 4, 7.9, lastId);
 		productsPage.updateProduct(expectedProduct);
-		//Product resultProduct = productsPage.findAndGetProduct(expectedProduct.getProductId());
 		Product resultProduct = productsPage.findAndGetProduct(lastId);
 		
 		asserNullProduct(resultProduct);
-		assertProductsChange(expectedProduct, resultProduct);//check!!!
+		assertProductsChange(expectedProduct, resultProduct);
 	}
 	
-	@Test
+	//@Test
 	public void testGetProduct() {
 		System.out.println("*get product test*");
 		
@@ -81,7 +94,16 @@ public class ProductTest {
 		
 	}
 	
-	@Test
+	//@Test//להשלים
+	public void testDeleteNull() {
+		System.out.println("*delete unexist product test*");
+		
+		int lastProductId = productsPage.getLastId() + 1;
+		
+		productsPage.deleteProduct(lastProductId);
+	}
+	
+	//@Test
 	public void testDeleteProduct() {
 		System.out.println("*delete product test*");
 		

@@ -6,7 +6,7 @@
       <class name="crudTest.ProductTest">
         <methods>
           <include name="finish"/>
-          <include name="testDeleteProduct"/>
+          <include name="testUpdateProduct"/>
           <include name="setup"/>
         </methods>
       </class> <!-- crudTest.ProductTest -->
