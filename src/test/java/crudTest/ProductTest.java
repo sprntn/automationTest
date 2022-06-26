@@ -52,7 +52,8 @@ public class ProductTest {
 	public void testUpdateById() throws InterruptedException {
 		System.out.println("*update product  by id test*");
 		
-		int id = 18;//randomaly
+		int id = productsPage.randomId();
+		//int id = 18;//randomaly
 		Product expectedProduct = new Product("item to update", 6, 8.9, id);
 		
 		productsPage.updateProduct(expectedProduct);
@@ -98,12 +99,13 @@ public class ProductTest {
 	public void testDeleteProductById() {
 		System.out.println("*delete product by id test*");
 		
-		int id = 24;//randomaly
+		int id = productsPage.randomId();
+		//int id = 53;//randomaly
 		productsPage.deleteProduct(id);
 		
 		Product resultProduct = productsPage.findAndGetProduct(id);
 		
-		Assert.assertNotEquals(null, resultProduct);
+		Assert.assertEquals(null, resultProduct);
 	}
 	
 	@Test

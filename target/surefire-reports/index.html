@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-crudTest_ProductTest">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testDeleteProduct">testDeleteProduct</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testDeleteProductById">testDeleteProductById</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-crudTest_ProductTest -->
@@ -126,13 +126,21 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testDeleteProduct">
-                  </a> <!-- testDeleteProduct -->
-                  <span class="method-name">testDeleteProduct</span>
-                  <div class="stack-trace">java.lang.AssertionError: did not expect [80] but found [80]
-	at crudTest.ProductTest.testDeleteProduct(ProductTest.java:113)
+                  <a name="testDeleteProductById">
+                  </a> <!-- testDeleteProductById -->
+                  <span class="method-name">testDeleteProductById</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: (//td[text()=&apos;22&apos;])[2]/../td[6]/button (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.2.1&apos;, revision: &apos;ac4d0fdd4a&apos;
+System info: host: &apos;DESKTOP-KSI83VH&apos;, ip: &apos;192.168.69.137&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.1.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.63, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\shapira\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:62007}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:62007/devtoo..., se:cdpVersion: 102.0.5005.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: afc6955216929ff440b0bb198bd2bdd2
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at crud.ProductsPage.deleteProduct(ProductsPage.java:269)
+	at crudTest.ProductTest.testDeleteProductById(ProductTest.java:104)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 37 stack frames
+... Removed 32 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -191,14 +199,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testDeleteProduct')
+data.setCell(0, 1, 'testDeleteProductById')
 data.setCell(0, 2, 'crudTest.ProductTest')
-data.setCell(0, 3, 147792);
+data.setCell(0, 3, 62856);
 window.suiteTableData['crudTest_ProductTest']= { tableData: data, tableDiv: 'times-div-crudTest_ProductTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-crudTest_ProductTest">
               </div> <!-- times-div-crudTest_ProductTest -->
             </div> <!-- times-div -->
@@ -232,12 +240,12 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">testDeleteProduct</span>
-                <span class="method-start">5154 ms</span>
+                <span class="method-name">testDeleteProductById</span>
+                <span class="method-start">5666 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">finish</span>
-                <span class="method-start">152951 ms</span>
+                <span class="method-start">68538 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
