@@ -100,7 +100,7 @@ public class ProductTest {
 		System.out.println("*delete product by id test*");
 		
 		int id = productsPage.randomId();
-		//int id = 53;//randomaly
+		//int id = 1;//randomaly
 		productsPage.deleteProduct(id);
 		
 		Product resultProduct = productsPage.findAndGetProduct(id);

@@ -173,7 +173,9 @@ public class ProductsPage {
 		
 		goToFirstPage();
 		
-		return linearSearchId(id, nextPageNum, productLocator);
+		return BinarySearchId(id, nextPageNum + 1, productLocator);
+		
+		//return linearSearchId(id, nextPageNum, productLocator);
 		/*
 		for(int i = 0; i <= nextPageNum; i++ ) {
 			System.out.println("page: " + (i + 1));
@@ -199,13 +201,14 @@ public class ProductsPage {
 		js.executeScript("arguments[0].click()", pageNumBtn);
 		
 		waiter.until(ExpectedConditions.attributeContains(pageNumLocator, "class", "rgCurrentPage"));
+		System.out.println("page: " + num);
 	}
 	
 	private int getFirstPageId() {
-		By lastRowIdLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[position() = 1]/td[2]");
-		WebElement lastRowId = waiter.until(ExpectedConditions.visibilityOfElementLocated(lastRowIdLocator));
+		By firstRowIdLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[position() = 1]/td[2]");
+		WebElement firstRowId = waiter.until(ExpectedConditions.visibilityOfElementLocated(firstRowIdLocator));
 		
-		String strId = lastRowId.getText();
+		String strId = firstRowId.getText();
 		return Integer.parseInt(strId);
 	}
 	
@@ -217,37 +220,38 @@ public class ProductsPage {
 		return Integer.parseInt(strId);
 	}
 	
-	private boolean BinarySearchId(String id,int pageNum, int nextPageNum, By productLocator) {
-		int low = 0;
+	private boolean BinarySearchId(String id, int nextPageNum, By productLocator) {
+		
+		//test
+		System.out.println("pages num: " + nextPageNum);
+		
+		int currentId = Integer.parseInt(id);
+		int low = 1;
 		int high = nextPageNum;
-		int currentPage = nextPageNum/2;
-		goToNumPage(String.valueOf(currentPage));
+		int currentPage;// = (low + high) / 2;
+		//goToNumPage(String.valueOf(currentPage));
 		
 		while(low <= high) {
+			currentPage = (low + high) / 2;
+			goToNumPage(String.valueOf(currentPage));
 			int firstId = getFirstPageId();
 			int lastId = getLastPageId();
-			int currentId = Integer.parseInt(id);
+			
 			if(firstId <= currentId && lastId >= currentId) {
 				try {
 					WebElement product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
 					System.out.println("product id: " + id + " found in page: " + currentPage);
 					return true;
 				}catch (Exception e) {
-					// TODO: handle exception
+					return false;
 				}
 			}else {
 				if(firstId > currentId) {
 					//go prev
 					high = currentPage - 1;
-					//currentPage = currentPage/2;
-					currentPage = (low + high) / 2;
-					goToNumPage(String.valueOf(currentPage));
 				}else {
 					//go next
 					low = currentPage + 1;
-					//currentPage = currentPage + (nextPageNum - currentPage)/2;
-					currentPage = (low + high) / 2;
-					goToNumPage(String.valueOf(currentPage));
 				}
 			}
 		}
