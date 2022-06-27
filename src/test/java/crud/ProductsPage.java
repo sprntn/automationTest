@@ -133,7 +133,8 @@ public class ProductsPage {
 		fillNewProdute(product);
 		
 		By submitBtn = By.cssSelector("button[id='ctl00_ContentPlaceholder1_RadGrid1_ctl00_ctl02_ctl03_PerformInsertButton']");
-		WebElement submit = driver.findElement(submitBtn);
+		//WebElement submit = driver.findElement(submitBtn);
+		WebElement submit = waiter.until(ExpectedConditions.elementToBeClickable(submitBtn));
 		js.executeScript("arguments[0].click()", submit);
 		//submit.click();
 		
@@ -165,17 +166,93 @@ public class ProductsPage {
 		//test
 		System.out.println("all items: " + productsNum + "\nitems per page: " + pageProductsNum + "\npages number: " + (nextPageNum + 1) + "\nrest: " + productsNum % pageProductsNum);
 				
-		WebElement product;
+		//WebElement product;
 		//By productLocator = By.xpath("//td[2 and text()='" + id + "']");
 		//By productLocator = By.xpath("(//td[text()='" + id + "'])[2]");
 		By productLocator = By.xpath("//td[position() = 2 and text()='" + id + "']");
 		
 		goToFirstPage();
 		
+		return linearSearchId(id, nextPageNum, productLocator);
+		/*
 		for(int i = 0; i <= nextPageNum; i++ ) {
 			System.out.println("page: " + (i + 1));
 			try {
 				product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
+				System.out.println("product id: " + id + " found in page: " + (i + 1));
+				return true;
+			}catch (Exception e) {
+				if(i < nextPageNum) {
+					goToNextPage();
+				}else {
+					return false;
+				}
+			}
+		}
+		return false;
+		*/
+	}
+	
+	private void goToNumPage(String num) {
+		By pageNumLocator = By.xpath("//div[@class='rgWrap rgNumPart']/a[position() = '" + num + "']");
+		WebElement pageNumBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(pageNumLocator));
+		js.executeScript("arguments[0].click()", pageNumBtn);
+		
+		waiter.until(ExpectedConditions.attributeContains(pageNumLocator, "class", "rgCurrentPage"));
+	}
+	
+	private int getFirstPageId() {
+		By lastRowIdLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[position() = 1]/td[2]");
+		WebElement lastRowId = waiter.until(ExpectedConditions.visibilityOfElementLocated(lastRowIdLocator));
+		
+		String strId = lastRowId.getText();
+		return Integer.parseInt(strId);
+	}
+	
+	private int getLastPageId() {
+		By lastRowIdLocator = By.xpath("//table[@class='rgMasterTable rfdOptionList']/tbody/tr[last()]/td[2]");
+		WebElement lastRowId = waiter.until(ExpectedConditions.visibilityOfElementLocated(lastRowIdLocator));
+		
+		String strId = lastRowId.getText();
+		return Integer.parseInt(strId);
+	}
+	
+	private boolean BinarySearchId(String id,int pageNum, int nextPageNum, By productLocator) {
+		int currentPage = nextPageNum/2;
+		goToNumPage(String.valueOf(currentPage));
+		
+		while(true) {
+			int firstId = getFirstPageId();
+			int lastId = getLastPageId();
+			int currentId = Integer.parseInt(id);
+			if(firstId <= currentId && lastId >= currentId) {
+				try {
+					WebElement product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
+					System.out.println("product id: " + id + " found in page: " + currentPage);
+					return true;
+				}catch (Exception e) {
+					// TODO: handle exception
+				}
+			}else {
+				if(firstId > currentId) {
+					//go prev
+					currentPage = currentPage/2;
+					goToNumPage(String.valueOf(currentPage));
+				}else {
+					//go next
+					currentPage = currentPage + (nextPageNum - currentPage)/2;
+					goToNumPage(String.valueOf(currentPage));
+				}
+			}
+		}
+		
+	}
+	
+	private boolean linearSearchId(String id, int nextPageNum, By productLocator) {
+		for(int i = 0; i <= nextPageNum; i++ ) {
+			System.out.println("page: " + (i + 1));
+			try {
+				WebElement product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
 				System.out.println("product id: " + id + " found in page: " + (i + 1));
 				return true;
 			}catch (Exception e) {
@@ -314,7 +391,7 @@ public class ProductsPage {
 	
 	private void goToLastPage() {
 		By lastPageBtnLocator = By.className("rgPageLast");
-		waiter.until(ExpectedConditions.elementToBeClickable(lastPageBtnLocator));
+		//waiter.until(ExpectedConditions.elementToBeClickable(lastPageBtnLocator));
 		WebElement lastPageBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(lastPageBtnLocator));
 		//wait.until(ExpectedConditions.elementToBeClickable(lastPageBtn));
 		
