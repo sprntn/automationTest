@@ -218,10 +218,12 @@ public class ProductsPage {
 	}
 	
 	private boolean BinarySearchId(String id,int pageNum, int nextPageNum, By productLocator) {
+		int low = 0;
+		int high = nextPageNum;
 		int currentPage = nextPageNum/2;
 		goToNumPage(String.valueOf(currentPage));
 		
-		while(true) {
+		while(low <= high) {
 			int firstId = getFirstPageId();
 			int lastId = getLastPageId();
 			int currentId = Integer.parseInt(id);
@@ -236,16 +238,20 @@ public class ProductsPage {
 			}else {
 				if(firstId > currentId) {
 					//go prev
-					currentPage = currentPage/2;
+					high = currentPage - 1;
+					//currentPage = currentPage/2;
+					currentPage = (low + high) / 2;
 					goToNumPage(String.valueOf(currentPage));
 				}else {
 					//go next
-					currentPage = currentPage + (nextPageNum - currentPage)/2;
+					low = currentPage + 1;
+					//currentPage = currentPage + (nextPageNum - currentPage)/2;
+					currentPage = (low + high) / 2;
 					goToNumPage(String.valueOf(currentPage));
 				}
 			}
 		}
-		
+		return false;
 	}
 	
 	private boolean linearSearchId(String id, int nextPageNum, By productLocator) {
