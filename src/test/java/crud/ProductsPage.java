@@ -27,8 +27,10 @@ public class ProductsPage {
 	
 	private void clickAddProduct() {
 		By newProductLink = By.className("rgAdd");
-		WebElement addBtn = driver.findElement(newProductLink);
-		addBtn.click();
+		//WebElement addBtn = driver.findElement(newProductLink);
+		//addBtn.click();
+		WebElement addBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(newProductLink));
+		js.executeScript("arguments[0].click()", addBtn);
 	}
 	
 	private void fillEditProdute(Product product) {
@@ -146,7 +148,7 @@ public class ProductsPage {
 		return getLastId();
 	}
 	
-	public boolean findPage(String id) {
+	public boolean findPage(String id) throws InterruptedException {
 		//test
 		System.out.println("find page, seeking for product: " + id);
 		
@@ -166,39 +168,23 @@ public class ProductsPage {
 		//test
 		System.out.println("all items: " + productsNum + "\nitems per page: " + pageProductsNum + "\npages number: " + (nextPageNum + 1) + "\nrest: " + productsNum % pageProductsNum);
 				
-		//WebElement product;
-		//By productLocator = By.xpath("//td[2 and text()='" + id + "']");
-		//By productLocator = By.xpath("(//td[text()='" + id + "'])[2]");
 		By productLocator = By.xpath("//td[position() = 2 and text()='" + id + "']");
-		
-		goToFirstPage();
 		
 		return BinarySearchId(id, nextPageNum + 1, productLocator);
 		
+		//goToFirstPage();
 		//return linearSearchId(id, nextPageNum, productLocator);
-		/*
-		for(int i = 0; i <= nextPageNum; i++ ) {
-			System.out.println("page: " + (i + 1));
-			try {
-				product = waiter.until(ExpectedConditions.visibilityOfElementLocated(productLocator));
-				System.out.println("product id: " + id + " found in page: " + (i + 1));
-				return true;
-			}catch (Exception e) {
-				if(i < nextPageNum) {
-					goToNextPage();
-				}else {
-					return false;
-				}
-			}
-		}
-		return false;
-		*/
 	}
 	
-	private void goToNumPage(String num) {
+	private void goToNumPage(String num) throws InterruptedException {
 		By pageNumLocator = By.xpath("//div[@class='rgWrap rgNumPart']/a[position() = '" + num + "']");
 		WebElement pageNumBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(pageNumLocator));
 		js.executeScript("arguments[0].click()", pageNumBtn);
+		
+		synchronized (waiter)
+		{
+			waiter.wait(1000);
+		}
 		
 		waiter.until(ExpectedConditions.attributeContains(pageNumLocator, "class", "rgCurrentPage"));
 		System.out.println("page: " + num);
@@ -220,7 +206,7 @@ public class ProductsPage {
 		return Integer.parseInt(strId);
 	}
 	
-	private boolean BinarySearchId(String id, int nextPageNum, By productLocator) {
+	private boolean BinarySearchId(String id, int nextPageNum, By productLocator) throws InterruptedException {
 		
 		//test
 		System.out.println("pages num: " + nextPageNum);
@@ -305,7 +291,7 @@ public class ProductsPage {
 		
 	}
 	
-	public Product findAndGetProduct(int id) {
+	public Product findAndGetProduct(int id) throws InterruptedException {
 		if(findPage(String.valueOf(id))) {
 			return getProductById(id);
 		}
@@ -348,7 +334,7 @@ public class ProductsPage {
 		return product;
 	}
 	
-	public void deleteProduct(int id) {
+	public void deleteProduct(int id) throws InterruptedException {
 		//test
 		System.out.println("deleting item: " + id);
 		
@@ -415,9 +401,11 @@ public class ProductsPage {
 	
 	public void goToFirstPage() {
 		By firstPageBtnLocator = By.className("rgPageFirst");
-		waiter.until(ExpectedConditions.elementToBeClickable(firstPageBtnLocator));
-		WebElement firstPageBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(firstPageBtnLocator));
+		//waiter.until(ExpectedConditions.elementToBeClickable(firstPageBtnLocator));
+		//WebElement firstPageBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(firstPageBtnLocator));
 		//wait.until(ExpectedConditions.elementToBeClickable(lastPageBtn));
+		
+		WebElement firstPageBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(firstPageBtnLocator));
 		
 		js.executeScript("arguments[0].click()", firstPageBtn);
 		

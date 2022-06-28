@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-crudTest_ProductTest" class="navigator-link">
-              <span class="suite-name border-passed">crudTest.ProductTest</span>
+              <span class="suite-name border-failed">crudTest.ProductTest</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">6 methods, 1 failed,   5 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-crudTest_ProductTest" class="hide-methods failed suite-crudTest_ProductTest"> (hide)</a> <!-- hide-methods failed suite-crudTest_ProductTest -->
+                      <a href="#" panel-name="suite-crudTest_ProductTest" class="show-methods failed suite-crudTest_ProductTest"> (show)</a> <!-- show-methods failed suite-crudTest_ProductTest -->
+                    </span>
+                    <div class="method-list-content failed suite-crudTest_ProductTest">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testUpdateProduct">testUpdateProduct</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-crudTest_ProductTest -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +117,27 @@
                     <div class="method-list-content passed suite-crudTest_ProductTest">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testAddProduct">testAddProduct</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testDeleteProduct">testDeleteProduct</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testDeleteProductById">testDeleteProductById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testGetProduct">testGetProduct</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-crudTest_ProductTest" title="crudTest.ProductTest" class="method navigator-link" hash-for-method="testUpdateById">testUpdateById</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-crudTest_ProductTest -->
@@ -118,6 +152,53 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-crudTest_ProductTest" class="panel crudTest_ProductTest">
+          <div class="suite-crudTest_ProductTest-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">crudTest.ProductTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateProduct">
+                  </a> <!-- testUpdateProduct -->
+                  <span class="method-name">testUpdateProduct</span>
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=102.0.5005.63)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
+Build info: version: &apos;4.2.1&apos;, revision: &apos;ac4d0fdd4a&apos;
+System info: host: &apos;DESKTOP-KSI83VH&apos;, ip: &apos;192.168.69.137&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;18.0.1.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6790d3e97e246d0fe12f19240e501f4d, getElementAttribute {id=4fe94e0b-7296-4172-ae88-7c7a550fb9a7, name=class}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.63, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\shapira\AppData\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:56089}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:56089/devtoo..., se:cdpVersion: 102.0.5005.63, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (6790d3e97e246d0fe12f19240e501f4d)] -&gt; xpath: //div[@class=&apos;rgWrap rgNumPart&apos;]/a[position() = &apos;5&apos;]]
+Session ID: 6790d3e97e246d0fe12f19240e501f4d
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:551)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
+	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:158)
+	at org.openqa.selenium.support.ui.ExpectedConditions.getAttributeOrCssValue(ExpectedConditions.java:1182)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:40)
+	at org.openqa.selenium.support.ui.ExpectedConditions$40.apply(ExpectedConditions.java:1130)
+	at org.openqa.selenium.support.ui.ExpectedConditions$40.apply(ExpectedConditions.java:1127)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	at crud.ProductsPage.goToNumPage(ProductsPage.java:210)
+	at crud.ProductsPage.BinarySearchId(ProductsPage.java:247)
+	at crud.ProductsPage.findPage(ProductsPage.java:176)
+	at crud.ProductsPage.findAndGetProduct(ProductsPage.java:320)
+	at crudTest.ProductTest.testUpdateProduct(ProductTest.java:76)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 35 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-crudTest_ProductTest-class-failed -->
           <div class="suite-crudTest_ProductTest-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -126,9 +207,37 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="testAddProduct">
+                  </a> <!-- testAddProduct -->
+                  <span class="method-name">testAddProduct</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteProduct">
+                  </a> <!-- testDeleteProduct -->
+                  <span class="method-name">testDeleteProduct</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="testDeleteProductById">
                   </a> <!-- testDeleteProductById -->
                   <span class="method-name">testDeleteProductById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetProduct">
+                  </a> <!-- testGetProduct -->
+                  <span class="method-name">testGetProduct</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdateById">
+                  </a> <!-- testUpdateById -->
+                  <span class="method-name">testUpdateById</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -184,16 +293,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(6);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testDeleteProductById')
 data.setCell(0, 2, 'crudTest.ProductTest')
-data.setCell(0, 3, 26958);
+data.setCell(0, 3, 28679);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testUpdateProduct')
+data.setCell(1, 2, 'crudTest.ProductTest')
+data.setCell(1, 3, 9797);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testUpdateById')
+data.setCell(2, 2, 'crudTest.ProductTest')
+data.setCell(2, 3, 8965);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testDeleteProduct')
+data.setCell(3, 2, 'crudTest.ProductTest')
+data.setCell(3, 3, 7412);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testGetProduct')
+data.setCell(4, 2, 'crudTest.ProductTest')
+data.setCell(4, 3, 4418);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testAddProduct')
+data.setCell(5, 2, 'crudTest.ProductTest')
+data.setCell(5, 3, 2734);
 window.suiteTableData['crudTest_ProductTest']= { tableData: data, tableDiv: 'times-div-crudTest_ProductTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 26 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-crudTest_ProductTest">
               </div> <!-- times-div-crudTest_ProductTest -->
             </div> <!-- times-div -->
@@ -225,12 +354,34 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
+                <span class="method-name">testAddProduct</span>
+                <span class="method-start">5817 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testDeleteProduct</span>
+                <span class="method-start">8554 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">testDeleteProductById</span>
-                <span class="method-start">6504 ms</span>
+                <span class="method-start">15967 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testGetProduct</span>
+                <span class="method-start">44648 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testUpdateById</span>
+                <span class="method-start">49066 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testUpdateProduct</span>
+                <span class="method-start">58032 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">finish</span>
-                <span class="method-start">33466 ms</span>
+                <span class="method-start">67847 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
