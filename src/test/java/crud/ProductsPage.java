@@ -181,10 +181,14 @@ public class ProductsPage {
 		WebElement pageNumBtn = waiter.until(ExpectedConditions.visibilityOfElementLocated(pageNumLocator));
 		js.executeScript("arguments[0].click()", pageNumBtn);
 		
+		/*
 		synchronized (waiter)
 		{
 			waiter.wait(1000);
 		}
+		*/
+		
+		waiter.until(ExpectedConditions.stalenessOf(pageNumBtn));
 		
 		waiter.until(ExpectedConditions.attributeContains(pageNumLocator, "class", "rgCurrentPage"));
 		System.out.println("page: " + num);

@@ -7,7 +7,11 @@
         <methods>
           <include name="finish"/>
           <include name="testUpdateProduct"/>
+          <include name="testDeleteProductById"/>
+          <include name="testDeleteProduct"/>
+          <include name="testGetProduct"/>
           <include name="setup"/>
+          <include name="testUpdateById"/>
         </methods>
       </class> <!-- crudTest.ProductTest -->
     </classes>

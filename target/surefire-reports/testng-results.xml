@@ -2,40 +2,40 @@
 <testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-28T11:43:55 IDT" name="crudTest.ProductTest" finished-at="2022-06-28T11:45:30 IDT" duration-ms="95115">
+  <suite started-at="2022-06-28T12:01:04 IDT" name="crudTest.ProductTest" finished-at="2022-06-28T12:02:24 IDT" duration-ms="79626">
     <groups>
     </groups>
-    <test started-at="2022-06-28T11:43:55 IDT" name="Command line test" finished-at="2022-06-28T11:45:30 IDT" duration-ms="95115">
+    <test started-at="2022-06-28T12:01:04 IDT" name="Command line test" finished-at="2022-06-28T12:02:24 IDT" duration-ms="79626">
       <class name="crudTest.ProductTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:43:55 IDT" name="setup" finished-at="2022-06-28T11:44:02 IDT" duration-ms="6737" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:01:04 IDT" name="setup" finished-at="2022-06-28T12:01:10 IDT" duration-ms="5159" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testAddProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:44:02 IDT" name="testAddProduct" finished-at="2022-06-28T11:44:05 IDT" duration-ms="2913" status="PASS">
+        <test-method signature="testAddProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:01:10 IDT" name="testAddProduct" finished-at="2022-06-28T12:01:13 IDT" duration-ms="3519" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddProduct -->
-        <test-method signature="testDeleteProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:44:05 IDT" name="testDeleteProduct" finished-at="2022-06-28T11:44:12 IDT" duration-ms="7294" status="PASS">
+        <test-method signature="testDeleteProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:01:13 IDT" name="testDeleteProduct" finished-at="2022-06-28T12:01:19 IDT" duration-ms="5388" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testDeleteProduct -->
-        <test-method signature="testDeleteProductById()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:44:12 IDT" name="testDeleteProductById" finished-at="2022-06-28T11:44:38 IDT" duration-ms="26127" status="PASS">
+        <test-method signature="testDeleteProductById()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:01:19 IDT" name="testDeleteProductById" finished-at="2022-06-28T12:01:45 IDT" duration-ms="26903" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testDeleteProductById -->
-        <test-method signature="testGetProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:44:38 IDT" name="testGetProduct" finished-at="2022-06-28T11:44:43 IDT" duration-ms="4924" status="PASS">
+        <test-method signature="testGetProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:01:45 IDT" name="testGetProduct" finished-at="2022-06-28T12:01:48 IDT" duration-ms="2498" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetProduct -->
-        <test-method signature="testUpdateById()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:44:43 IDT" name="testUpdateById" finished-at="2022-06-28T11:44:55 IDT" duration-ms="11476" status="PASS">
+        <test-method signature="testUpdateById()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:01:48 IDT" name="testUpdateById" finished-at="2022-06-28T12:01:54 IDT" duration-ms="6474" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUpdateById -->
-        <test-method signature="testUpdateProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:44:55 IDT" name="testUpdateProduct" finished-at="2022-06-28T11:45:10 IDT" duration-ms="15180" status="PASS">
+        <test-method signature="testUpdateProduct()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:01:54 IDT" name="testUpdateProduct" finished-at="2022-06-28T12:02:04 IDT" duration-ms="9454" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUpdateProduct -->
-        <test-method is-config="true" signature="finish()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T11:45:10 IDT" name="finish" finished-at="2022-06-28T11:45:30 IDT" duration-ms="20402" status="PASS">
+        <test-method is-config="true" signature="finish()[pri:0, instance:crudTest.ProductTest@25b485ba]" started-at="2022-06-28T12:02:04 IDT" name="finish" finished-at="2022-06-28T12:02:24 IDT" duration-ms="20186" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finish -->
